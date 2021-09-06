@@ -1,0 +1,47 @@
+[System]
+Name='Performance'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='No_of_Processors'
+Range=[0 96]
+NumMFs=3
+MF1='low':'gaussmf',[13.9030286003669 -1.33e-15]
+MF2='avg':'gaussmf',[8.36397338109723 48]
+MF3='high':'gaussmf',[13.9030286003669 96]
+
+[Input2]
+Name='Processor_Speed'
+Range=[0 160000]
+NumMFs=3
+MF1='low':'gaussmf',[28893.9276457984 -6520]
+MF2='avg':'gaussmf',[24279.5253777988 80000]
+MF3='high':'gaussmf',[23910.2550298475 160000]
+
+[Output1]
+Name='Performance'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trimf',[0 2 4]
+MF2='avg':'trimf',[3 5 7]
+MF3='high':'trimf',[6 8 10]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 2 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1

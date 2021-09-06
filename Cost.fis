@@ -1,0 +1,73 @@
+[System]
+Name='Cost'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='VM_Cost'
+Range=[0 0.5]
+NumMFs=3
+MF1='low':'gaussmf',[0.106 -0.0628531073446328]
+MF2='average':'gaussmf',[0.0740757361126909 0.25]
+MF3='high':'gaussmf',[0.0758751467065214 0.5]
+
+[Input2]
+Name='Storage_Cost'
+Range=[0 0.25]
+NumMFs=3
+MF1='low':'gaussmf',[0.03734 0]
+MF2='average':'gaussmf',[0.03411 0.1265]
+MF3='high':'gaussmf',[0.03464 0.25]
+
+[Input3]
+Name='Data_Transfer_Cost'
+Range=[0 0.2]
+NumMFs=3
+MF1='low':'gaussmf',[0.0303500586826086 0]
+MF2='average':'gaussmf',[0.0161946953444749 0.1]
+MF3='high':'gaussmf',[0.0387 0.203943502824859]
+
+[Output1]
+Name='Total_Cost'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trimf',[-4 0 4]
+MF2='average':'trimf',[2 5 8]
+MF3='high':'trimf',[7 10 13]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 1 (1) : 1
+1 1 3, 1 (1) : 1
+1 2 1, 1 (1) : 1
+1 2 2, 2 (1) : 1
+1 2 3, 2 (1) : 1
+1 3 1, 1 (1) : 1
+1 3 2, 2 (1) : 1
+1 3 3, 2 (1) : 1
+2 1 1, 1 (1) : 1
+2 1 2, 2 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 2 (1) : 1
+2 3 1, 2 (1) : 1
+2 3 2, 2 (1) : 1
+2 3 3, 2 (1) : 1
+3 1 1, 1 (1) : 1
+3 1 2, 2 (1) : 1
+3 1 3, 2 (1) : 1
+3 2 1, 2 (1) : 1
+3 2 2, 2 (1) : 1
+3 2 3, 2 (1) : 1
+3 3 1, 1 (1) : 1
+3 3 2, 2 (1) : 1
+3 3 3, 3 (1) : 1
